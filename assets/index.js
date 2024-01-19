@@ -12,6 +12,13 @@ const render = require("./src/page-template.js");
 
 
 // TODO: Write Code to gather information about the development team members, and render the HTML file.
+const managerMock = new Manager("Mary", 2909, "Mary@example.com", "LB1994");
+const engineerMock = new Engineer("Mary", 2909, "Mary@example.com", "LB1994");
+const internMock = new Intern("Mary", 2909, "Mary@example.com", "LB1994");
+
+console.log(managerMock.getRole()); 
+console.log(engineerMock.getRole()); 
+console.log(internMock.getRole()); 
 
 // const writeFileAsync = util.promisify(fs.writeFile);
 

@@ -10,11 +10,19 @@ class Employee {
         return this.name;
     }
 
+    getId() {
+        return this.id;
+    }
+
     getEmail() {
         return this.email;
     }
 
     getRole() {
-        return "Employee";
+        let role = ""
+        role = "Employee"
+        return role
     }
 }
+
+module.exports = Employee;
