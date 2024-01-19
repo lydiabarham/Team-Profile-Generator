@@ -8,9 +8,7 @@ class Engineer extends Employee {
     }
 
     getGithub() {
-        let gitHubUserName = ""
-        gitHubUserName = this.github;
-        return gitHubUserName
+        return this.github;
     }
 
     getRole() {

@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/lydiabarham/Team-Profile-Generator#readme",
   "dependencies": {
-    "inquirer": "^9.2.12"
+    "inquirer": "^8.2.6"
   },
   "devDependencies": {
     "jest": "^24.8.0"

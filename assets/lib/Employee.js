@@ -19,9 +19,7 @@ class Employee {
     }
 
     getRole() {
-        let role = ""
-        role = "Employee"
-        return role
+        return "Employee"
     }
 }
 
