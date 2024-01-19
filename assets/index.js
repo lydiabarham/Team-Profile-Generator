@@ -20,6 +20,26 @@ const employeePrompt = () => {
         {
             type: 'input',
             name: 'name',
+            message: 'Enter employee name:',
+        },
+        {
+            type: 'input',
+            name: 'id',
+            message: 'Enter employee ID:',
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: 'Enter employee email:',
+        },
+    ]);
+};
+
+const managerPrompt = () => {
+    return inquirer.prompt([
+        {
+            type: 'input',
+            name: 'name',
             message: 'Enter manager name:',
         },
         {
@@ -70,7 +90,7 @@ const engineerPrompt = () => {
         },
         {
             type: 'input',
-            name: 'officeNumber',
+            name: 'gitHub',
             message: 'Enter engineer GitHub username:',
         }
     ]);
