@@ -9,18 +9,17 @@ const util = require("util");
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
-const render = require("./src/page-template.js");
+// render function 
+const team = require("./src/page-template.js");
 
+const { default: generate } = require("@babel/generator");
 
 // create mock team members
 const managerMock = new Manager("Mary", 2909, "Mary@example.com", "LB1994");
 const engineerMock = new Engineer("Mary", 2909, "Mary@example.com", "LB1994");
 const internMock = new Intern("Mary", 2909, "Mary@example.com", "LB1994");
 
-// console.log(managerMock.getRole());
-// console.log(engineerMock.getRole());
-// console.log(internMock.getRole());
-
+// initial manager prompt
 const managerPrompt = () => {
     return inquirer.prompt([
         {
@@ -46,6 +45,7 @@ const managerPrompt = () => {
     ]);
 };
 
+// add engineer prompt
 const engineerPrompt = () => {
     return inquirer.prompt([
         {
@@ -71,6 +71,7 @@ const engineerPrompt = () => {
     ]);
 };
 
+// add intern prompt
 const internPrompt = () => {
     return inquirer.prompt([
         {
@@ -96,6 +97,7 @@ const internPrompt = () => {
     ]);
 };
 
+// add team members prompt
 const teamPrompt = () => {
     return inquirer.prompt({
         type: 'list',
@@ -115,7 +117,7 @@ const employeePrompt = async () => {
     const manager = new Manager(managerAnswers.name, managerAnswers.id, managerAnswers.email, managerAnswers.officeNumber);
     teamMembers.push(manager);
 
-    // Loop calling the team prompt function 
+    // Loop calling the team prompt functions at the right time 
     let answerOption;
     do {
         const teamPromptAnswers = await teamPrompt();
@@ -135,10 +137,24 @@ const employeePrompt = async () => {
     return teamMembers;
 };
 
-// Call employee prompt funtion to start the application and handle the result
-employeePrompt()
-    .then((teamMembers) => {
-        console.log('Team members:', teamMembers);
-    })
-    .catch((err) => console.error(err));
+// function to initialise and write to html
+const init = async () => {
+    try {
+        const teamMembers = await employeePrompt();
+
+        // call render function
+        const generatedHtml = team(teamMembers);
+
+        // write file to html
+        await writeFileAsync(outputPath, generatedHtml);
+
+        console.log('Successfully wrote to team.html');
+    } catch (err) {
+        console.error(err);
+    }
+};
+
+// initialise
+init();
+
 
