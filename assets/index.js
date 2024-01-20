@@ -91,7 +91,7 @@ const internPrompt = () => {
         },
         {
             type: 'input',
-            name: 'officeNumber',
+            name: 'school',
             message: 'Enter intern school:',
         },
     ]);
