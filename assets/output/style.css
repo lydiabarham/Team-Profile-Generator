@@ -1,0 +1,44 @@
+* {
+    font-family: 'Times New Roman', Times, serif
+}
+
+.team-heading {
+    background-color: #6b2f37;
+    color: white;
+    font-style: oblique;
+    border: double 10px;
+}
+
+h1 {
+    font-size: 70px;
+    text-shadow: 2px 2px #a04652;
+}
+
+h2 {
+    font-style: oblique;
+    font-size: xx-large;
+    text-shadow: 2px 2px #6b2f37;
+}
+
+h3 {
+    font-size: x-large;
+}
+
+.employee-card {
+    margin: 20px;
+    border: 5px #36181c double;
+    color: #36181c;
+    width: 600px;
+}
+
+.card-header {
+    background-color: #a04652;
+    color: white;
+    border-radius: 0px !important;
+}
+
+@media only screen and (max-width: 1200px) {
+    .employee-card {
+        width: 400px;
+    }
+  }

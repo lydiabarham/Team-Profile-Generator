@@ -12,8 +12,6 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 // render function 
 const team = require("./src/page-template.js");
 
-const { default: generate } = require("@babel/generator");
-
 // create mock team members
 const managerMock = new Manager("Mary", 2909, "Mary@example.com", "LB1994");
 const engineerMock = new Engineer("Mary", 2909, "Mary@example.com", "LB1994");
@@ -117,7 +115,7 @@ const employeePrompt = async () => {
     const manager = new Manager(managerAnswers.name, managerAnswers.id, managerAnswers.email, managerAnswers.officeNumber);
     teamMembers.push(manager);
 
-    // Loop calling the team prompt functions at the right time 
+    // Loop calling the team prompt functions at the right time
     let answerOption;
     do {
         const teamPromptAnswers = await teamPrompt();
